@@ -37,12 +37,12 @@
     NSInteger bill = [self.billAmountTextField.text integerValue];
     CGFloat tip = [self.tipPercentageField.text floatValue] / 100;
     
-    self.tipAmountLabel.text = [NSString stringWithFormat:@"$%g.00", tip * bill];
+    self.tipAmountLabel.text = [NSString stringWithFormat:@"$%.2f", tip * bill];
 }
 - (IBAction)adjustTipPercentage:(UISlider *)sender {
     CGFloat tip = [self.tipPercentageField.text floatValue];
     tip = sender.value;
-    self.tipPercentageField.text = [NSString stringWithFormat:@"%g", tip];
+    self.tipPercentageField.text = [NSString stringWithFormat:@"%.2f", tip];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
