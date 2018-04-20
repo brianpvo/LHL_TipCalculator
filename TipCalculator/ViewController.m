@@ -31,8 +31,6 @@
     self.tipPercentageField.keyboardType = UIKeyboardTypeNumberPad;
     self.tipPercentageField.delegate = self;
     
-    //self.view.userInteractionEnabled = true;
-    
 }
 
 - (IBAction)calculateTip:(UIButton *)sender {
@@ -50,7 +48,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    NSLog(@"In textFieldShouldReturn:");
     return YES;
 }
 
