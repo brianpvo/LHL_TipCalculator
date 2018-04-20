@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,48 +19,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0l6-hQ-zPR">
-                                <rect key="frame" x="16" y="83" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0l6-hQ-zPR">
+                                <rect key="frame" x="16" y="126" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pk5-i8-nOx">
-                                <rect key="frame" x="142" y="271" width="90" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pk5-i8-nOx">
+                                <rect key="frame" x="142" y="456" width="90" height="30"/>
                                 <state key="normal" title="Calculate Tip"/>
                                 <connections>
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PzX-1d-oKn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tip Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T55-65-5ip">
-                                <rect key="frame" x="98" y="323" width="178" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T55-65-5ip">
+                                <rect key="frame" x="143" y="546" width="88.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZQ-88-WMb">
-                                <rect key="frame" x="139" y="200" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="BbW-cS-y0N">
-                                <rect key="frame" x="109" y="238" width="156" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="BbW-cS-y0N">
+                                <rect key="frame" x="73" y="396" width="229" height="31"/>
                                 <connections>
                                     <action selector="adjustTipPercentage:" destination="BYZ-38-t0r" eventType="valueChanged" id="Nqj-Rj-Am2"/>
                                 </connections>
                             </slider>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZQ-88-WMb">
+                                <rect key="frame" x="139" y="346" width="97" height="30"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0l6-hQ-zPR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5qK-Ej-tDi"/>
+                            <constraint firstItem="0ZQ-88-WMb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="9CA-S9-UDG"/>
+                            <constraint firstItem="0l6-hQ-zPR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="DOT-bO-fmf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0ZQ-88-WMb" secondAttribute="trailing" constant="139" id="JYa-JF-1xr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BbW-cS-y0N" secondAttribute="trailing" constant="75" id="NwX-s5-RS0"/>
+                            <constraint firstItem="BbW-cS-y0N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="P7G-g8-hXR"/>
+                            <constraint firstItem="Pk5-i8-nOx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="142" id="PGp-5S-szR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="T55-65-5ip" secondAttribute="bottom" constant="100" id="R3q-EA-vVT"/>
+                            <constraint firstItem="T55-65-5ip" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ROa-Dd-9UL"/>
+                            <constraint firstItem="BbW-cS-y0N" firstAttribute="top" secondItem="0ZQ-88-WMb" secondAttribute="bottom" constant="20" id="W6J-hJ-luz"/>
+                            <constraint firstItem="T55-65-5ip" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YEe-YG-QJv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pk5-i8-nOx" secondAttribute="trailing" constant="143" id="emC-in-ftj"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="T55-65-5ip" secondAttribute="trailing" id="enc-p7-oto"/>
+                            <constraint firstItem="T55-65-5ip" firstAttribute="top" secondItem="Pk5-i8-nOx" secondAttribute="bottom" constant="60" id="k27-ms-rsG"/>
+                            <constraint firstItem="Pk5-i8-nOx" firstAttribute="top" secondItem="BbW-cS-y0N" secondAttribute="bottom" constant="30" id="pkR-eq-sgk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0l6-hQ-zPR" secondAttribute="trailing" constant="16" id="qdO-s1-llY"/>
+                            <constraint firstItem="0l6-hQ-zPR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="106" id="v25-0w-95s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="billAmountTextField" destination="0l6-hQ-zPR" id="Xmy-nD-XFH"/>
+                        <outlet property="bottomConstraint" destination="R3q-EA-vVT" id="yOX-Uu-QXL"/>
                         <outlet property="tipAmountLabel" destination="T55-65-5ip" id="Kuu-n2-MWZ"/>
                         <outlet property="tipPercentageField" destination="0ZQ-88-WMb" id="2nC-oZ-Hi7"/>
                     </connections>

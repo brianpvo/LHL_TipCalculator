@@ -13,8 +13,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *billAmountTextField;
 @property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
 @property (weak, nonatomic) IBOutlet UITextField *tipPercentageField;
-@property (nonatomic) NSNotificationCenter *notificationCenter;
 @property (nonatomic) UITouch *touch;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end
 
@@ -22,14 +22,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.tipPercentageField.placeholder = @"Tip %";
     
+    self.billAmountTextField.placeholder = @"Bill Amount";
     self.billAmountTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.billAmountTextField.delegate = self;
     
+    self.tipPercentageField.placeholder = @"Tip %";
+    self.tipPercentageField.backgroundColor = [UIColor lightGrayColor];
     self.tipPercentageField.keyboardType = UIKeyboardTypeNumberPad;
     self.tipPercentageField.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyView) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(afterNotifyView) name:UIKeyboardDidHideNotification object:nil];
     
 }
 
@@ -57,6 +62,22 @@
         [self.billAmountTextField resignFirstResponder];
         [self.tipPercentageField resignFirstResponder];
     }
+}
+
+-(void)notifyView {
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.1 animations:^{
+        self.bottomConstraint.constant = 350;
+        [self.view layoutIfNeeded];
+    }];
+}
+
+-(void)afterNotifyView {
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.1 animations:^{
+        self.bottomConstraint.constant = 100;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 
