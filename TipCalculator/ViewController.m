@@ -8,11 +8,13 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()  <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *billAmountTextField;
 @property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
 @property (weak, nonatomic) IBOutlet UITextField *tipPercentageField;
+@property (nonatomic) NSNotificationCenter *notificationCenter;
+@property (nonatomic) UITouch *touch;
 
 @end
 
@@ -22,6 +24,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.tipPercentageField.placeholder = @"Tip %";
+    
+    self.billAmountTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.billAmountTextField.delegate = self;
+    
+    self.tipPercentageField.keyboardType = UIKeyboardTypeNumberPad;
+    self.tipPercentageField.delegate = self;
+    
+    //self.view.userInteractionEnabled = true;
+    
 }
 
 - (IBAction)calculateTip:(UIButton *)sender {
@@ -29,7 +40,26 @@
     CGFloat tip = [self.tipPercentageField.text floatValue] / 100;
     
     self.tipAmountLabel.text = [NSString stringWithFormat:@"$%g.00", tip * bill];
-    
+}
+- (IBAction)adjustTipPercentage:(UISlider *)sender {
+    CGFloat tip = [self.tipPercentageField.text floatValue];
+    tip = sender.value;
+    self.tipPercentageField.text = [NSString stringWithFormat:@"%g", tip];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    NSLog(@"In textFieldShouldReturn:");
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if(touch.phase == UITouchPhaseBegan) {
+        [self.billAmountTextField resignFirstResponder];
+        [self.tipPercentageField resignFirstResponder];
+    }
 }
 
 
